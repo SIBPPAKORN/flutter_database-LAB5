@@ -5,7 +5,7 @@ class formscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("หน้าที่2"),
+          title: Text("เเบบฟอร์มบันทึกข้อมูล"),
         ),
         body: Container());
   }
