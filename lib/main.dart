@@ -44,8 +44,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 })
           ],
         ),
-        body: ListView.builder(itemBuilder: (context, int index) {
-          return Text("เมนู");
-        }));
+        body: ListView.builder(
+            itemCount: 5,
+            itemBuilder: (context, int index) {
+              return Card(
+                elevation: 20,
+                margin: const EdgeInsets.symmetric(vertical: 7, horizontal: 5),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    radius: 40,
+                    child: FittedBox(child: Text("19000")),
+                  ),
+                  title: Text("รายการ"),
+                  subtitle: Text("04/06/2020"),
+                ),
+              );
+            }));
   }
 }
