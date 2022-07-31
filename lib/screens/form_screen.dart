@@ -13,15 +13,19 @@ class formscreen extends StatelessWidget {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             TextFormField(
               decoration: new InputDecoration(labelText: "ชื่อรายการ"),
+              autofocus: true,
             ),
             TextFormField(
               decoration: new InputDecoration(labelText: "จำนวนเงิน"),
+              keyboardType: TextInputType.number,
             ),
             FlatButton(
               child: Text("เพิ่มข้อมูล"),
               color: Colors.pink,
               textColor: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
             )
           ]),
         ));

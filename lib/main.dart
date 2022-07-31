@@ -44,6 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 })
           ],
         ),
-        body: Container());
+        body: ListView.builder(itemBuilder: (context, int index) {
+          return Text("เมนู");
+        }));
   }
 }
