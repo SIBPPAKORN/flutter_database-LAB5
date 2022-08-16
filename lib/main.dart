@@ -52,11 +52,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 margin: const EdgeInsets.symmetric(vertical: 7, horizontal: 5),
                 child: ListTile(
                   leading: CircleAvatar(
-                    radius: 40,
+                    radius: 30,
                     child: FittedBox(child: Text("19000")),
                   ),
                   title: Text("รายการ"),
-                  subtitle: Text("04/06/2020"),
+                  subtitle: Text("31/07/65"),
                 ),
               );
             }));
