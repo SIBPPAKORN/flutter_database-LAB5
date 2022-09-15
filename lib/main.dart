@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: true,
       title: 'sibpakorn_app',
       theme: ThemeData(
         primarySwatch: Colors.blue,
