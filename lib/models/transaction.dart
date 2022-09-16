@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class transaction {
   String title; //ชื่อรายการ
-  double product;
+  double product; //ชื่อสินค้า
   double price;
 
   transaction(
