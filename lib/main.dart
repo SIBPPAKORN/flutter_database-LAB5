@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_database/models/Informations.dart';
+import 'package:flutter_database/providers/information_provider.dart';
 import 'package:flutter_database/screens/form_screen.dart';
+import 'package:flutter_database/screens/home_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,15 +11,21 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) {
+          return tranformationProvider();
+        })
+      ],
       child: MaterialApp(
-        title: 'sibpakorn_app',
+        title: 'อุปกรณ์ของใช้',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const MyHomePage(title: 'แอปบัญชี '),
+        home: const MyHomePage(title: 'อุปกรณ์ของใช้'),
       ),
     );
   }
@@ -32,35 +42,32 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Provider.of<tranformationProvider>(context, listen: false).initData();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-          actions: [
-            IconButton(
-                icon: Icon(Icons.ac_unit),
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return formscreen();
-                  }));
-                })
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        backgroundColor: Colors.orange,
+        body: TabBarView(children: [HomeScreen(), FormScreen()]),
+        bottomNavigationBar: TabBar(
+          tabs: [
+            Tab(
+              icon: Icon(Icons.list),
+              text: "รายการสินค้า",
+            ),
+            Tab(
+              icon: Icon(Icons.add),
+              text: "เพิ่มข้อมูล",
+            )
           ],
         ),
-        body: ListView.builder(
-            itemCount: 5,
-            itemBuilder: (context, int index) {
-              return Card(
-                elevation: 20,
-                margin: const EdgeInsets.symmetric(vertical: 7, horizontal: 5),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    radius: 30,
-                    child: FittedBox(child: Text("19000")),
-                  ),
-                  title: Text("รายการ"),
-                  subtitle: Text("31/07/65"),
-                ),
-              );
-            }));
+      ),
+    );
   }
 }
