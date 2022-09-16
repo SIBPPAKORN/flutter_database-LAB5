@@ -9,13 +9,14 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: true,
-      title: 'sibpakorn_app',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return Material(
+      child: MaterialApp(
+        title: 'sibpakorn_app',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const MyHomePage(title: 'แอปบัญชี '),
       ),
-      home: const MyHomePage(title: 'แอปบัญชี '),
     );
   }
 }
