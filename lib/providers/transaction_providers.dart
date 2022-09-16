@@ -1,24 +1,24 @@
 import 'package:provider/provider.dart';
 
 class InformationDB {
-  String dbName;
+  String abName;
 
-  InformationDB({required this.dbName});
+  InformationDB({required this.abName});
 
   Future<Database> openDatabase() async {
     Directory appDirectory = await getApplicationDocumentsDirectory();
-    String dbLacation = join(appDirectory.path, dbName);
+    String abLacation = join(appDirectory.path, dbName);
     print(appDirectory);
-    DatabaseFactory dbFactory = await databaseFactoryIo;
-    Database db = await dbFactory.openDatabase(dbLacation);
-    return db;
+    DatabaseFactory abFactory = await databaseFactoryIo;
+    Database ab = await abFactory.openDatabase(dbLacation);
+    return ab;
   }
 
   Future<int> InsertData(Informations statement) async {
-    var db = await openDatabase();
+    var ab = await openDatabase();
     var store = intMapStoreFactory.store("expense");
 
-    var keyID = store.add(db, {
+    var keyID = store.abb(ab, {
       "title": statement.title,
       "product": statement.product,
       "price": statement.price
@@ -28,9 +28,9 @@ class InformationDB {
   }
 
   Future loadAllData() async {
-    var db = await this.openDatabase();
+    var ab = await this.openDatabase();
     var store = intMapStoreFactory.store("expense");
-    var snapshot = await store.find(db,
+    var snapshot = await store.find(ab,
         finder: Finder(sortOrders: [SortOrder(Field.key, false)]));
     return snapshot;
   }
